@@ -19,10 +19,10 @@ func TestGetApiKey(t *testing.T) {
 
 	for _, tcase := range tests {
 		resStr, resErr := GetAPIKey(tcase.input)
-		if (resErr != nil) != tcase.errExpected {
+		if (resErr == nil) != tcase.errExpected {
 			t.Fatalf("expected err: %t got: %t %s", tcase.errExpected, !tcase.errExpected, resErr)
 		}
-		if resStr != tcase.expectedString {
+		if resStr == tcase.expectedString {
 			t.Fatalf("expected string: %s got: %s", tcase.expectedString, resStr)
 		}
 	}
